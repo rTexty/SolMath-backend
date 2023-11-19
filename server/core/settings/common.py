@@ -1,7 +1,25 @@
+from os import environ
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = [
+    'server',
+    'localhost',
+    '0.0.0.0',
+    '127.0.0.1'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    f'http://{host}'
+    for host in ALLOWED_HOSTS
+]
+
+if (HOSTS := environ.get('HOSTS', '').split(',')):
+
+    for HOST in HOSTS:
+        ALLOWED_HOSTS.append(HOST)
+        CSRF_TRUSTED_ORIGINS.append(f'https://{HOST}')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
