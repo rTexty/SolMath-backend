@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+
+  server:
+    container_name: Server
+
+    build:
+      context: .
+      dockerfile: ./docker/development/Dockerfile
+
+    environment:
+      - DJANGO_SETTINGS_MODULE=core.settings.development
+
+    volumes:
+      - ./server/:/server_source/
+
+    ports:
+      - 8000:8000
+
+    command: bash /start.sh
+
+  database:
+    container_name: Database
+    image: postgres:15.1-alpine
+
+    volumes:
+      - dev_db_data:/var/lib/postgresql/data/
+
+    environment:
+      - POSTGRES_DB=django
+      - POSTGRES_USER=django
+      - POSTGRES_PASSWORD=django
+
+    ports:
+      - 5432:5432
+
+volumes:
+  dev_db_data:
