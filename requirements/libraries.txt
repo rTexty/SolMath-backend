@@ -1,0 +1,7 @@
+# Common
+django
+
+# Development
+flake8
+
+# Production
