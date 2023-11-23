@@ -15,7 +15,13 @@ auth_urlpatterns = [
     )
 ]
 
+# TODO
+user_urlpatterns = [
+
+]
+
 app_name = 'users'
 urlpatterns = [
-    path('auth/', include(auth_urlpatterns))
+    path('auth/', include(auth_urlpatterns)),
+    path('', include(user_urlpatterns))
 ]
