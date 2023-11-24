@@ -1,3 +1,4 @@
+from . import views
 from django.urls import path, include
 from rest_framework_simplejwt import views as auth_views
 
@@ -17,7 +18,11 @@ auth_urlpatterns = [
 
 # TODO
 user_urlpatterns = [
-
+    path(
+        '',
+        views.UserCreateAV.as_view(),
+        name='user-create'
+    )
 ]
 
 app_name = 'users'
