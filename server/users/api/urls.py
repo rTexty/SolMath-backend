@@ -16,7 +16,6 @@ auth_urlpatterns = [
     )
 ]
 
-# TODO
 user_urlpatterns = [
     path(
         '',
