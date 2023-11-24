@@ -1,5 +1,9 @@
-from .user import UserCreateAV
+from .user import (
+    UserCreateAV,
+    UserMeAV
+)
 
 __all__ = (
     'UserCreateAV',
+    'UserMeAV'
 )

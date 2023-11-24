@@ -22,6 +22,12 @@ user_urlpatterns = [
         '',
         views.UserCreateAV.as_view(),
         name='user-create'
+    ),
+
+    path(
+        'me/',
+        views.UserMeAV.as_view(),
+        name='user-me'
     )
 ]
 
