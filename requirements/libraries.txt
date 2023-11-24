@@ -1,5 +1,8 @@
 # Common
 django
+psycopg2-binary
+djangorestframework
+djangorestframework-simplejwt
 
 # Development
 flake8
